@@ -3,7 +3,11 @@ import mongoose from 'mongoose';
 
 const app = express();
 
-
+mongoose.connect("mongodb://127.0.0.1:27017", {
+    dbName: 'backendapi',
+}).then(() => {
+    console.log("Database connection established");
+}).catch((e) => console.log(e));
 
 app.get('/', (req, res) => {
     res.send("Working fine Eshu");
