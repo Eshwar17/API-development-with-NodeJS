@@ -9,6 +9,16 @@ mongoose.connect("mongodb://127.0.0.1:27017", {
     console.log("Database connection established");
 }).catch((e) => console.log(e));
 
+//creating schema
+const schema = new mongoose.Schema({
+    name: String,
+    email: String,
+    password: String,
+});
+
+//create collection
+const User = mongoose.model('User', schema);
+
 app.get('/', (req, res) => {
     res.send("Working fine Eshu");
 })
